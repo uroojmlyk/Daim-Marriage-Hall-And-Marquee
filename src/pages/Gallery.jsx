@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 import { useState, useEffect } from 'react'
 import { X, ChevronLeft, ChevronRight, Filter, Grid, List, ZoomIn } from 'lucide-react'
 
@@ -8,43 +16,188 @@ const Gallery = () => {
   const [viewMode, setViewMode] = useState('grid')
   const [loadedImages, setLoadedImages] = useState([])
 
-  // Updated High Quality Wedding Images - All Working URLs
+  // Updated Gallery Images with Proper Descriptions Based on Image Content
   const galleryImages = [
-    // Venue Images
-    { id: 1, category: 'venue', url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Grand Entrance Hall', description: 'Majestic entrance with traditional Pakistani decor' },
-    { id: 2, category: 'venue', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Main Wedding Hall', description: 'Spacious hall for 2000+ guests with elegant decor' },
-    { id: 3, category: 'venue', url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Outdoor Marquee', description: 'Beautiful outdoor setup with modern facilities' },
-    { id: 4, category: 'venue', url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Evening Setup', description: 'Magical evening ambiance with perfect lighting' },
+    // Venue Images - Hall aur venue ki pictures
+    { 
+      id: 1, 
+      category: 'venue', 
+      url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', 
+      title: 'DAIM Main Hall Entrance', 
+      description: 'Grand main entrance of DAIM Marriage Hall with traditional welcome setup' 
+    },
+    { 
+      id: 2, 
+      category: 'venue', 
+      url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', 
+      title: 'Main Wedding Hall', 
+      description: 'Spacious indoor hall accommodating 2000+ guests with premium seating' 
+    },
+    { 
+      id: 3, 
+      category: 'venue', 
+      url: '/wedding11.jpg', 
+      title: 'Outdoor Marquee Area', 
+      description: 'Beautiful outdoor marquee setup with modern facilities and decor' 
+    },
+    { 
+      id: 4, 
+      category: 'venue', 
+      url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', 
+      title: 'Evening Wedding Setup', 
+      title: 'Evening Wedding Setup', 
+      description: 'Magical evening ambiance with perfect lighting arrangements' 
+    },
     
-    // Decor Images
-    { id: 5, category: 'decor', url: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Stage Decor', description: 'Elegant traditional stage for bride and groom' },
-    { id: 6, category: 'decor', url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Floral Decorations', description: 'Fresh flower arrangements throughout venue' },
-    { id: 7, category: 'decor', url: 'https://images.unsplash.com/photo-1562825618-2c7a89f8c3e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Table Settings', description: 'Premium table arrangements for guest comfort' },
-    { id: 8, category: 'decor', url: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Lighting Effects', description: 'Custom lighting designs for every event' },
+    // Decor Images - Decoration aur rangon ki pictures
+    { 
+      id: 5, 
+      category: 'decor', 
+      url: '/wedding10.jpg', 
+      title: 'Stage Decor for Nikah', 
+      description: 'Elegant traditional stage decor for bride and groom ceremony' 
+    },
+    { 
+      id: 6, 
+      category: 'decor', 
+      url: '/hall5.jpg', 
+      title: 'Floral Arrangements', 
+      description: 'Beautiful fresh flower decorations throughout the venue' 
+    },
+    { 
+      id: 7, 
+      category: 'decor', 
+      url: '/wedding8.jpg', 
+      title: 'Guest Table Decorations', 
+      description: 'Premium table settings and arrangements for guest comfort' 
+    },
+    { 
+      id: 8, 
+      category: 'decor', 
+      url: '/wedding7.jpg', 
+      title: 'Lighting and Effects', 
+      description: 'Custom lighting designs and special effects for weddings' 
+    },
     
-    // Events Images
-    { id: 9, category: 'events', url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Mehndi Function', description: 'Vibrant colors and traditional mehndi celebrations' },
-    { id: 10, category: 'events', url: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Baraat Ceremony', description: 'Grand groom procession with traditional music' },
-    { id: 11, category: 'events', url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Nikah Ceremony', description: 'Traditional Islamic wedding ceremony setup' },
-    { id: 12, category: 'events', url: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Walima Reception', description: 'Grand reception dinner with premium catering' },
+    // Events Images - Functions ki pictures
+    { 
+      id: 9, 
+      category: 'events', 
+      url: '/wedding6.jpg', 
+      title: 'Mehndi Function', 
+      description: 'Vibrant Mehndi ceremony with traditional colors and henna' 
+    },
+    { 
+      id: 10, 
+      category: 'events', 
+      url: '/wedding5.jpg', 
+      title: 'Baraat Procession', 
+      description: 'Grand Baraat ceremony with traditional groom procession' 
+    },
+    { 
+      id: 11, 
+      category: 'events', 
+      url: '/wedding4.jpg', 
+      title: 'Nikah Ceremony', 
+      description: 'Traditional Islamic Nikah ceremony setup at DAIM Hall' 
+    },
+    { 
+      id: 12, 
+      category: 'events', 
+      url: '/wedding3.jpg', 
+      title: 'Walima Reception', 
+      description: 'Grand Walima reception dinner with premium catering service' 
+    },
     
-    // Facilities Images
-    { id: 13, category: 'facilities', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Catering Service', description: 'Exquisite food arrangements and live counters' },
-    { id: 14, category: 'facilities', url: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Bridal Suite', description: 'Luxurious dressing rooms for bridal party' },
-    { id: 15, category: 'facilities', url: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Parking Area', description: 'Ample secured parking space for guests' },
-    { id: 16, category: 'facilities', url: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Guest Seating', description: 'Comfortable seating for large gatherings' },
+    // Facilities Images - Facilities aur amenities ki pictures
+    { 
+      id: 13, 
+      category: 'facilities', 
+      url: '/wedding2.jpg', 
+      title: 'Catering Service Area', 
+      description: 'Exquisite food arrangements and live food counters' 
+    },
+    { 
+      id: 14, 
+      category: 'facilities', 
+      url: '/wedding1.jpg', 
+      title: 'Bridal Dressing Room', 
+      description: 'Luxurious dressing rooms for bridal party preparations' 
+    },
+    { 
+      id: 15, 
+      category: 'facilities', 
+      url: '/hall7.jpg', 
+      title: 'Ample Parking Space', 
+      description: 'Secured parking area with ample space for guests vehicles' 
+    },
+    { 
+      id: 16, 
+      category: 'facilities', 
+      url: '/hall6.jpg', 
+      title: 'Comfortable Seating', 
+      description: 'Premium comfortable seating arrangements for guests' 
+    },
     
-    // Additional Images
-    { id: 17, category: 'decor', url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Entrance Decor', description: 'Beautiful traditional entrance decorations' },
-    { id: 18, category: 'venue', url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Night Ambiance', description: 'Stunning night time wedding setup' },
-    { id: 19, category: 'events', url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Dance Performances', description: 'Cultural dance performances and entertainment' },
-    { id: 20, category: 'facilities', url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Buffet Counters', description: 'Organized food counters with variety' },
+    // Additional Images - Aur decoration pictures
+    { 
+      id: 17, 
+      category: 'decor', 
+      url: '/hall4.jpg', 
+      title: 'Traditional Entrance Decor', 
+      description: 'Beautiful traditional entrance decorations for weddings' 
+    },
+    { 
+      id: 18, 
+      category: 'venue', 
+      url: '/hall3.jpg', 
+      title: 'Night Wedding Ambiance', 
+      description: 'Stunning night time wedding setup with lighting' 
+    },
+    { 
+      id: 19, 
+      category: 'events', 
+      url: '/hall2.jpg', 
+      title: 'Cultural Dance Performances', 
+      description: 'Traditional cultural dance performances and entertainment' 
+    },
+    { 
+      id: 20, 
+      category: 'facilities', 
+      url: '/hall1.jpg', 
+      title: 'Buffet Food Counters', 
+      description: 'Organized buffet counters with variety of delicious food' 
+    },
     
-    // More Images for Variety
-    { id: 21, category: 'venue', url: 'https://images.unsplash.com/photo-1478147427282-58a87a120781?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Daytime Setup', description: 'Beautiful daylight wedding arrangements' },
-    { id: 22, category: 'decor', url: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Stage Lighting', description: 'Professional stage lighting effects' },
-    { id: 23, category: 'events', url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Traditional Music', description: 'Live traditional music performances' },
-    { id: 24, category: 'facilities', url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80', title: 'Service Staff', description: 'Professional and courteous service staff' },
+    // More Images - Last few pictures
+    { 
+      id: 21, 
+      category: 'venue', 
+      url: '/malik4.jpg', 
+      title: 'Daytime Wedding Setup', 
+      description: 'Beautiful daylight wedding arrangements at DAIM Hall' 
+    },
+    { 
+      id: 22, 
+      category: 'decor', 
+      url: '/malik3.jpg', 
+      title: 'Stage Lighting Setup', 
+      description: 'Professional stage lighting effects and arrangements' 
+    },
+    { 
+      id: 23, 
+      category: 'events', 
+      url: '/malik2.jpg', 
+      title: 'Live Music Performances', 
+      description: 'Live traditional music performances for wedding functions' 
+    },
+    { 
+      id: 24, 
+      category: 'facilities', 
+      url: '/malik1.jpg', 
+      title: 'Professional Service Staff', 
+      description: 'Professional and courteous service staff for events' 
+    },
   ]
 
   const categories = [
@@ -113,36 +266,36 @@ const Gallery = () => {
           }}></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <div className="relative z-10 px-6 mx-auto text-center max-w-7xl">
           <div className="mb-8">
             <span className="text-sm tracking-[0.3em] uppercase text-gray-400 font-semibold">
               VISUAL GALLERY
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8">
+          <h1 className="mb-8 text-5xl font-bold text-white md:text-6xl lg:text-7xl">
             Our <span className="font-normal text-gray-300">Gallery</span>
           </h1>
           
-          <div className="w-24 h-1 bg-white/60 mx-auto mb-10"></div>
+          <div className="w-24 h-1 mx-auto mb-10 bg-white/60"></div>
           
-          <p className="text-2xl md:text-3xl text-gray-200 max-w-3xl mx-auto font-medium leading-relaxed">
+          <p className="max-w-3xl mx-auto text-2xl font-medium leading-relaxed text-gray-200 md:text-3xl">
             Experience 25 years of beautiful celebrations through our collection of cherished moments
           </p>
           
-          <div className="mt-16 p-6 bg-white/5 backdrop-blur-sm rounded-xl inline-block">
-            <div className="text-4xl font-bold text-white mb-2">{galleryImages.length}+</div>
-            <div className="text-gray-300 text-lg font-medium">Precious Moments Captured</div>
+          <div className="inline-block p-6 mt-16 bg-white/5 backdrop-blur-sm rounded-xl">
+            <div className="mb-2 text-4xl font-bold text-white">{galleryImages.length}+</div>
+            <div className="text-lg font-medium text-gray-300">Precious Moments Captured</div>
           </div>
         </div>
       </section>
 
       {/* Gallery Controls */}
       <section className="py-12 bg-gray-800 border-b border-gray-700">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+        <div className="px-6 mx-auto max-w-7xl">
+          <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
             {/* Category Filter */}
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+            <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
               {categories.map((category) => (
                 <button
                   key={category.id}
@@ -166,8 +319,8 @@ const Gallery = () => {
 
             {/* View Toggle */}
             <div className="flex items-center gap-4">
-              <span className="text-gray-400 text-sm tracking-widest font-medium">VIEW:</span>
-              <div className="flex bg-gray-700 rounded-lg p-1">
+              <span className="text-sm font-medium tracking-widest text-gray-400">VIEW:</span>
+              <div className="flex p-1 bg-gray-700 rounded-lg">
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`p-3 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white text-gray-900' : 'text-gray-400 hover:text-white'}`}
@@ -188,29 +341,29 @@ const Gallery = () => {
 
       {/* Gallery Grid */}
       <section className="py-16 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="px-6 mx-auto max-w-7xl">
           {/* Loading Indicator */}
           {loadedImages.length < galleryImages.length && (
-            <div className="text-center mb-8">
-              <div className="inline-block animate-pulse text-gray-400">
+            <div className="mb-8 text-center">
+              <div className="inline-block text-gray-400 animate-pulse">
                 Loading images... {loadedImages.length}/{galleryImages.length}
               </div>
             </div>
           )}
 
           {viewMode === 'grid' ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredImages.map((image, index) => (
                 <div 
                   key={image.id}
-                  className="group relative overflow-hidden rounded-lg bg-gray-700 border border-gray-600 hover:border-gray-400 transition-all duration-500 cursor-pointer transform hover:-translate-y-1 hover:shadow-2xl"
+                  className="relative overflow-hidden transition-all duration-500 transform bg-gray-700 border border-gray-600 rounded-lg cursor-pointer group hover:border-gray-400 hover:-translate-y-1 hover:shadow-2xl"
                   onClick={() => openLightbox(image, index)}
                 >
                   {/* Image Container */}
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {/* Loading Placeholder */}
                     {!loadedImages.includes(image.id) && (
-                      <div className="absolute inset-0 bg-gray-600 animate-pulse flex items-center justify-center">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-600 animate-pulse">
                         <div className="text-gray-400">Loading...</div>
                       </div>
                     )}
@@ -230,14 +383,14 @@ const Gallery = () => {
                     />
                     
                     {/* Hover Overlay - Dark Theme */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                        <div className="flex justify-between items-start">
+                    <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent group-hover:opacity-100">
+                      <div className="absolute bottom-0 left-0 right-0 p-5 transition-transform duration-500 transform translate-y-full group-hover:translate-y-0">
+                        <div className="flex items-start justify-between">
                           <div>
-                            <h3 className="text-lg font-bold text-white mb-2">{image.title}</h3>
-                            <p className="text-gray-300 text-sm">{image.description}</p>
+                            <h3 className="mb-2 text-lg font-bold text-white">{image.title}</h3>
+                            <p className="text-sm text-gray-300">{image.description}</p>
                           </div>
-                          <div className="p-2 bg-white/20 backdrop-blur-sm rounded-full">
+                          <div className="p-2 rounded-full bg-white/20 backdrop-blur-sm">
                             <ZoomIn className="text-white" size={18} />
                           </div>
                         </div>
@@ -247,15 +400,15 @@ const Gallery = () => {
                   
                   {/* Category Badge */}
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 bg-gray-900/90 backdrop-blur-sm text-white text-xs font-bold rounded-full border border-gray-700">
+                    <span className="px-3 py-1 text-xs font-bold text-white border border-gray-700 rounded-full bg-gray-900/90 backdrop-blur-sm">
                       {image.category.toUpperCase()}
                     </span>
                   </div>
                   
                   {/* Info Bar */}
                   <div className="p-4 bg-gray-700">
-                    <h3 className="font-semibold text-white mb-1 truncate">{image.title}</h3>
-                    <p className="text-gray-400 text-sm truncate">{image.description}</p>
+                    <h3 className="mb-1 font-semibold text-white truncate">{image.title}</h3>
+                    <p className="text-sm text-gray-400 truncate">{image.description}</p>
                   </div>
                 </div>
               ))}
@@ -266,11 +419,11 @@ const Gallery = () => {
               {filteredImages.map((image, index) => (
                 <div 
                   key={image.id}
-                  className="group flex flex-col lg:flex-row items-stretch bg-gray-700 border border-gray-600 rounded-lg overflow-hidden hover:border-gray-400 transition-all duration-500 cursor-pointer hover:shadow-xl"
+                  className="flex flex-col items-stretch overflow-hidden transition-all duration-500 bg-gray-700 border border-gray-600 rounded-lg cursor-pointer group lg:flex-row hover:border-gray-400 hover:shadow-xl"
                   onClick={() => openLightbox(image, index)}
                 >
                   {/* Image */}
-                  <div className="lg:w-1/3 relative overflow-hidden">
+                  <div className="relative overflow-hidden lg:w-1/3">
                     {!loadedImages.includes(image.id) && (
                       <div className="absolute inset-0 bg-gray-600 animate-pulse"></div>
                     )}
@@ -288,20 +441,20 @@ const Gallery = () => {
                       }}
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 bg-gray-900/90 text-white text-xs font-bold rounded-full">
+                      <span className="px-3 py-1 text-xs font-bold text-white rounded-full bg-gray-900/90">
                         {image.category.toUpperCase()}
                       </span>
                     </div>
                   </div>
                   
                   {/* Content */}
-                  <div className="lg:w-2/3 p-6 flex flex-col justify-center">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gray-200 transition-colors">
+                  <div className="flex flex-col justify-center p-6 lg:w-2/3">
+                    <h3 className="mb-3 text-xl font-bold text-white transition-colors group-hover:text-gray-200">
                       {image.title}
                     </h3>
-                    <p className="text-gray-300 mb-4">{image.description}</p>
+                    <p className="mb-4 text-gray-300">{image.description}</p>
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center text-gray-400 text-sm">
+                      <div className="flex items-center text-sm text-gray-400">
                         <ZoomIn size={16} className="mr-2" />
                         Click to view full size
                       </div>
@@ -317,19 +470,19 @@ const Gallery = () => {
 
           {/* No Images Message */}
           {filteredImages.length === 0 && (
-            <div className="text-center py-20">
-              <div className="text-gray-500 text-6xl mb-6">📷</div>
-              <h3 className="text-2xl font-bold text-white mb-4">No Images Found</h3>
-              <p className="text-gray-400 max-w-md mx-auto">
+            <div className="py-20 text-center">
+              <div className="mb-6 text-6xl text-gray-500">📷</div>
+              <h3 className="mb-4 text-2xl font-bold text-white">No Images Found</h3>
+              <p className="max-w-md mx-auto text-gray-400">
                 We're updating this category. Please check back soon or browse other categories.
               </p>
             </div>
           )}
 
           {/* Image Count */}
-          <div className="mt-16 pt-8 border-t border-gray-700 text-center">
-            <p className="text-gray-400 text-sm tracking-widest font-medium">
-              DISPLAYING <span className="text-white font-bold">{filteredImages.length}</span> OF <span className="text-white font-bold">{galleryImages.length}</span> TOTAL IMAGES
+          <div className="pt-8 mt-16 text-center border-t border-gray-700">
+            <p className="text-sm font-medium tracking-widest text-gray-400">
+              DISPLAYING <span className="font-bold text-white">{filteredImages.length}</span> OF <span className="font-bold text-white">{galleryImages.length}</span> TOTAL IMAGES
             </p>
           </div>
         </div>
@@ -337,29 +490,29 @@ const Gallery = () => {
 
       {/* Lightbox Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fadeIn">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 animate-fadeIn">
           <button
             onClick={closeLightbox}
-            className="absolute top-6 right-6 text-white hover:text-gray-300 transition-colors z-10 bg-gray-800/80 p-3 rounded-full backdrop-blur-sm"
+            className="absolute z-10 p-3 text-white transition-colors rounded-full top-6 right-6 hover:text-gray-300 bg-gray-800/80 backdrop-blur-sm"
           >
             <X size={28} />
           </button>
 
           <button
             onClick={() => navigateImage('prev')}
-            className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-gray-800/80 p-4 rounded-full backdrop-blur-sm"
+            className="absolute z-10 p-4 text-white transition-colors transform -translate-y-1/2 rounded-full left-6 top-1/2 hover:text-gray-300 bg-gray-800/80 backdrop-blur-sm"
           >
             <ChevronLeft size={32} />
           </button>
 
           <button
             onClick={() => navigateImage('next')}
-            className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-gray-800/80 p-4 rounded-full backdrop-blur-sm"
+            className="absolute z-10 p-4 text-white transition-colors transform -translate-y-1/2 rounded-full right-6 top-1/2 hover:text-gray-300 bg-gray-800/80 backdrop-blur-sm"
           >
             <ChevronRight size={32} />
           </button>
 
-          <div className="max-w-6xl w-full relative">
+          <div className="relative w-full max-w-6xl">
             {/* Main Image */}
             <div className="relative overflow-hidden rounded-lg">
               <img
@@ -376,15 +529,15 @@ const Gallery = () => {
                   {selectedImage.category.toUpperCase()}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">{selectedImage.title}</h3>
-              <p className="text-lg text-gray-300 mb-4 max-w-2xl mx-auto">{selectedImage.description}</p>
-              <p className="text-gray-400 font-medium">
+              <h3 className="mb-3 text-2xl font-bold text-white">{selectedImage.title}</h3>
+              <p className="max-w-2xl mx-auto mb-4 text-lg text-gray-300">{selectedImage.description}</p>
+              <p className="font-medium text-gray-400">
                 Image {currentIndex + 1} of {filteredImages.length}
               </p>
             </div>
 
             {/* Thumbnail Navigation */}
-            <div className="mt-8 flex gap-3 overflow-x-auto py-3 px-1">
+            <div className="flex gap-3 px-1 py-3 mt-8 overflow-x-auto">
               {filteredImages.map((img, index) => (
                 <button
                   key={img.id}
@@ -399,7 +552,7 @@ const Gallery = () => {
                   <img
                     src={img.url}
                     alt={img.title}
-                    className="w-full h-full object-cover"
+                    className="object-cover w-full h-full"
                   />
                 </button>
               ))}
@@ -410,36 +563,36 @@ const Gallery = () => {
 
       {/* Gallery Footer */}
       <section className="py-16 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
+        <div className="max-w-4xl px-6 mx-auto text-center">
+          <h2 className="mb-6 text-3xl font-bold text-white">
             See Our Venue in Person
           </h2>
-          <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto font-medium">
+          <p className="max-w-2xl mx-auto mb-10 text-lg font-medium text-gray-300">
             Experience the elegance and grandeur of DAIM Marriage Hall with a personal tour.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a 
               href="/contact"
-              className="px-10 py-4 bg-white text-gray-900 text-base font-bold rounded-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
+              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-gray-900 transition-all duration-300 bg-white rounded-lg hover:bg-gray-100 hover:scale-105"
             >
               Book a Personal Tour
               <ChevronRight className="ml-3" size={20} />
             </a>
             <a 
-              href="tel:+923001234567"
-              className="px-10 py-4 bg-transparent border border-white text-white text-base font-bold rounded-lg hover:bg-white/10 hover:scale-105 transition-all duration-300"
+              href="tel:+923216839646"
+              className="px-10 py-4 text-base font-bold text-white transition-all duration-300 bg-transparent border border-white rounded-lg hover:bg-white/10 hover:scale-105"
             >
               Call for Gallery Tour
             </a>
           </div>
           
           {/* Contact Info */}
-          <div className="mt-12 pt-8 border-t border-gray-800">
-            <p className="text-gray-400 text-sm mb-4 font-medium">
+          <div className="pt-8 mt-12 border-t border-gray-800">
+            <p className="mb-4 text-sm font-medium text-gray-400">
               For gallery inquiries and photography requests:
             </p>
             <p className="text-xl font-bold text-white">+92 321 6839 646</p>
-            <p className="text-gray-500 text-sm mt-2">Gallery Department • DAIM Marriage Hall And Marquee</p>
+            <p className="mt-2 text-sm text-gray-500">Gallery Department • DAIM Marriage Hall And Marquee</p>
           </div>
         </div>
       </section>

@@ -51,7 +51,7 @@ const About = () => {
       <section className="relative py-32 overflow-hidden">
         {/* Background Image with Gradient */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-fixed bg-center bg-cover"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80")'
           }}
@@ -59,20 +59,20 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-900/90 to-gray-800/95"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <div className="relative z-10 px-6 mx-auto text-center max-w-7xl">
           <div className="mb-8">
             <span className="text-sm tracking-[0.3em] uppercase text-gray-300 font-semibold">
               THE DAIM STORY
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8">
+          <h1 className="mb-8 text-5xl font-bold text-white md:text-6xl lg:text-7xl">
             Our <span className="font-normal text-gray-300">25-Year</span> Legacy
           </h1>
           
-          <div className="w-24 h-1 bg-white/80 mx-auto mb-10"></div>
+          <div className="w-24 h-1 mx-auto mb-10 bg-white/80"></div>
           
-          <p className="text-2xl md:text-3xl text-gray-200 max-w-3xl mx-auto font-medium leading-relaxed">
+          <p className="max-w-3xl mx-auto text-2xl font-medium leading-relaxed text-gray-200 md:text-3xl">
             Bangla Gogera's premier destination where timeless traditions meet modern elegance. 
             Creating unforgettable celebrations since 1999.
           </p>
@@ -80,7 +80,7 @@ const About = () => {
       </section>
 
       {/* Founder Section with Dark Background */}
-      <section className="relative py-24 bg-gray-900 overflow-hidden">
+      <section className="relative py-24 overflow-hidden bg-gray-900">
         {/* Pattern Overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -89,20 +89,20 @@ const About = () => {
           }}></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10 px-6 mx-auto max-w-7xl">
+          <div className="grid items-center grid-cols-1 gap-16 lg:grid-cols-2">
             {/* Founder Image */}
             <div className="relative">
               <div className="relative overflow-hidden rounded-xl">
                 <div 
                   className="w-full h-[500px] bg-cover bg-center transform hover:scale-105 transition-transform duration-700"
                   style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80")'
+                    backgroundImage: 'url("/father.jpeg")'
                   }}
                 ></div>
               </div>
               {/* Experience Badge */}
-              <div className="absolute -bottom-6 -right-6 bg-white text-gray-900 px-10 py-8 shadow-2xl border border-gray-200">
+              <div className="absolute px-10 py-8 text-gray-900 bg-white border border-gray-200 shadow-2xl -bottom-6 -right-6">
                 <div className="text-center">
                   <div className="text-4xl font-bold">25+</div>
                   <div className="text-sm tracking-[0.2em] uppercase mt-2 font-semibold">Years Excellence</div>
@@ -116,32 +116,32 @@ const About = () => {
                 VISIONARY LEADER
               </span>
               
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+              <h2 className="mb-8 text-4xl font-bold text-white md:text-5xl">
                 Malik Abdul Rasheed
               </h2>
               
               <div className="space-y-6">
-                <p className="text-lg text-gray-300 leading-relaxed font-medium">
-                  For over <span className="text-white font-bold">two decades</span>, Malik Abdul Rasheed has been the driving force behind DAIM Marriage Hall. 
+                <p className="text-lg font-medium leading-relaxed text-gray-300">
+                  For over <span className="font-bold text-white">two decades</span>, Malik Abdul Rasheed has been the driving force behind DAIM Marriage Hall. 
                   His unwavering commitment to excellence and passion for creating memorable celebrations 
-                  has established DAIM as <span className="text-white font-bold">Bangla Gogera's most trusted wedding venue</span>.
+                  has established DAIM as <span className="font-bold text-white">Bangla Gogera's most trusted wedding venue</span>.
                 </p>
                 
-                <p className="text-lg text-gray-300 leading-relaxed font-medium">
-                  With <span className="text-white font-bold">meticulous attention to detail</span> and deep respect for cultural traditions, 
+                <p className="text-lg font-medium leading-relaxed text-gray-300">
+                  With <span className="font-bold text-white">meticulous attention to detail</span> and deep respect for cultural traditions, 
                   he personally oversees every event, ensuring perfection in execution. 
-                  His <span className="text-white font-bold">25 years of expertise</span> bring unparalleled wisdom and excellence to every celebration.
+                  His <span className="font-bold text-white">25 years of expertise</span> bring unparalleled wisdom and excellence to every celebration.
                 </p>
               </div>
 
               {/* Quote Card */}
-              <div className="mt-12 p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                <p className="text-2xl italic text-white mb-6 font-light">
-                  "Every wedding is a unique love story. <span className="font-semibold not-italic">Our privilege is to make yours the most beautiful chapter</span>."
+              <div className="p-8 mt-12 border bg-white/10 backdrop-blur-sm rounded-xl border-white/20">
+                <p className="mb-6 text-2xl italic font-light text-white">
+                  "Every wedding is a unique love story. <span className="not-italic font-semibold">Our privilege is to make yours the most beautiful chapter</span>."
                 </p>
-                <div className="flex justify-between items-center">
-                  <p className="text-white font-bold text-lg">— Malik Abdul Rasheed</p>
-                  <div className="text-sm text-gray-400 font-medium">Founder & Owner</div>
+                <div className="flex items-center justify-between">
+                  <p className="text-lg font-bold text-white">— Malik Abdul Rasheed</p>
+                  <div className="text-sm font-medium text-gray-400">Founder & Owner</div>
                 </div>
               </div>
             </div>
@@ -151,31 +151,31 @@ const About = () => {
 
       {/* Achievements Stats with Gradient */}
       <section className="py-24 bg-gradient-to-br from-gray-800 to-gray-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+        <div className="px-6 mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
             <span className="text-sm tracking-[0.3em] uppercase text-gray-400 mb-4 block font-semibold">
               OUR ACHIEVEMENTS
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
               Numbers That Speak
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto font-medium">
+            <p className="max-w-2xl mx-auto text-xl font-medium text-gray-300">
               A legacy built on trust, excellence, and countless happy memories
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {achievements.map((achievement, index) => (
               <div 
                 key={index} 
-                className="text-center p-10 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 group"
+                className="p-10 text-center transition-all duration-500 border bg-white/5 backdrop-blur-sm rounded-xl border-white/10 hover:bg-white/10 hover:border-white/20 group"
               >
                 <div className="flex justify-center mb-6">
-                  <div className="p-4 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors">
+                  <div className="p-4 transition-colors rounded-full bg-white/10 group-hover:bg-white/20">
                     {achievement.icon}
                   </div>
                 </div>
-                <div className="text-4xl font-bold text-white mb-3">{achievement.label}</div>
+                <div className="mb-3 text-4xl font-bold text-white">{achievement.label}</div>
                 <div className="text-sm tracking-[0.2em] uppercase text-gray-300 font-semibold">{achievement.value}</div>
               </div>
             ))}
@@ -187,7 +187,7 @@ const About = () => {
       <section className="relative py-32 overflow-hidden">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-center bg-cover"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")'
           }}
@@ -195,15 +195,15 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/80 to-black/75"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+        <div className="relative z-10 px-6 mx-auto max-w-7xl">
+          <div className="mb-20 text-center">
             <span className="text-sm tracking-[0.3em] uppercase text-gray-300 mb-4 block font-semibold">
               OUR JOURNEY
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
               25 Years of Excellence
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto font-medium">
+            <p className="max-w-2xl mx-auto text-xl font-medium text-gray-300">
               A remarkable journey from humble beginnings to becoming Bangla Gogera's premier venue
             </p>
           </div>
@@ -220,15 +220,15 @@ const About = () => {
               >
                 {/* Content */}
                 <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'}`}>
-                  <div className="p-10 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/15 transition-all duration-500">
+                  <div className="p-10 transition-all duration-500 border bg-white/10 backdrop-blur-sm rounded-xl border-white/20 hover:bg-white/15">
                     <div className="text-sm tracking-[0.3em] uppercase text-gray-300 mb-3 font-bold">{item.year}</div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                    <p className="text-gray-300 font-medium">{item.description}</p>
+                    <h3 className="mb-4 text-2xl font-bold text-white">{item.title}</h3>
+                    <p className="font-medium text-gray-300">{item.description}</p>
                   </div>
                 </div>
                 
                 {/* Year Circle */}
-                <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 w-20 h-20 bg-gray-900 border-4 border-white rounded-full items-center justify-center z-10">
+                <div className="absolute z-10 items-center justify-center hidden w-20 h-20 transform -translate-x-1/2 bg-gray-900 border-4 border-white rounded-full lg:flex left-1/2">
                   <span className="text-lg font-bold text-white">{item.year}</span>
                 </div>
               </div>
@@ -239,49 +239,49 @@ const About = () => {
 
       {/* Core Values with Dark Background */}
       <section className="py-32 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
+        <div className="px-6 mx-auto max-w-7xl">
+          <div className="mb-20 text-center">
             <span className="text-sm tracking-[0.3em] uppercase text-gray-400 mb-4 block font-semibold">
               OUR PHILOSOPHY
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            <h2 className="mb-8 text-4xl font-bold text-white md:text-5xl">
               The DAIM Difference
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto font-medium">
+            <p className="max-w-3xl mx-auto text-xl font-medium text-gray-300">
               Core principles that define our approach and set us apart in the industry
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {coreValues.map((value, index) => (
               <div 
                 key={index} 
-                className="p-10 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 group"
+                className="p-10 transition-all duration-500 border bg-white/5 backdrop-blur-sm rounded-xl border-white/10 hover:bg-white/10 hover:border-white/20 group"
               >
                 <div className="flex items-center mb-8">
-                  <div className="p-5 bg-white rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-5 transition-transform duration-300 bg-white rounded-full group-hover:scale-110">
                     {value.icon}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-6">{value.title}</h3>
-                <p className="text-gray-300 font-medium leading-relaxed">{value.description}</p>
+                <h3 className="mb-6 text-2xl font-bold text-white">{value.title}</h3>
+                <p className="font-medium leading-relaxed text-gray-300">{value.description}</p>
               </div>
             ))}
           </div>
 
           {/* Facility Features */}
-          <div className="mt-24 p-12 bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl border border-gray-700">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-white mb-6">Premium Facilities</h3>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto font-medium">
+          <div className="p-12 mt-24 border border-gray-700 bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl">
+            <div className="mb-12 text-center">
+              <h3 className="mb-6 text-3xl font-bold text-white">Premium Facilities</h3>
+              <p className="max-w-2xl mx-auto text-xl font-medium text-gray-300">
                 State-of-the-art amenities for a flawless celebration experience
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
               {facilityFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10">
                     <div className="text-white">{feature.icon}</div>
                   </div>
                   <span className="text-lg font-medium text-white">{feature.text}</span>
@@ -296,7 +296,7 @@ const About = () => {
       <section className="relative py-32 overflow-hidden">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-fixed bg-center bg-cover"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80")'
           }}
@@ -304,42 +304,42 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-900/90 to-gray-800/95"></div>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-4xl px-6 mx-auto text-center">
           <span className="text-sm tracking-[0.3em] uppercase text-gray-300 mb-6 block font-semibold">
             EXPERIENCE THE LEGACY
           </span>
           
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-10">
+          <h2 className="mb-10 text-5xl font-bold text-white md:text-6xl">
             Visit DAIM Hall
           </h2>
           
-          <p className="text-2xl text-gray-200 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
+          <p className="max-w-2xl mx-auto mb-16 text-2xl font-medium leading-relaxed text-gray-200">
             Schedule a personal tour with Malik Abdul Rasheed and discover why generations trust us with their celebrations.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col justify-center gap-6 sm:flex-row">
             <a 
               href="tel:+923001234567"
-              className="px-16 py-5 bg-white text-gray-900 text-lg tracking-widest uppercase hover:bg-gray-100 hover:scale-105 transition-all duration-300 font-bold inline-flex items-center justify-center"
+              className="inline-flex items-center justify-center px-16 py-5 text-lg font-bold tracking-widest text-gray-900 uppercase transition-all duration-300 bg-white hover:bg-gray-100 hover:scale-105"
             >
               Call For Tour
               <Phone className="ml-4" size={20} />
             </a>
             <a 
               href="/contact"
-              className="px-16 py-5 bg-transparent border-2 border-white text-white text-lg tracking-widest uppercase hover:bg-white/10 hover:scale-105 transition-all duration-300 font-bold"
+              className="px-16 py-5 text-lg font-bold tracking-widest text-white uppercase transition-all duration-300 bg-transparent border-2 border-white hover:bg-white/10 hover:scale-105"
             >
               Book Consultation
             </a>
           </div>
 
           {/* Contact Info */}
-          <div className="mt-20 pt-12 border-t border-white/20">
-            <p className="text-gray-300 text-lg mb-8 font-medium">
+          <div className="pt-12 mt-20 border-t border-white/20">
+            <p className="mb-8 text-lg font-medium text-gray-300">
               DAIM Marriage Hall & Marquee • Bangla Gogera
             </p>
-            <p className="text-3xl font-bold text-white mb-4">+92 300 123 4567</p>
-            <p className="text-gray-400 font-medium">Malik Abdul Rasheed • Direct Line</p>
+            <p className="mb-4 text-3xl font-bold text-white">+92 300 123 4567</p>
+            <p className="font-medium text-gray-400">Malik Abdul Rasheed • Direct Line</p>
           </div>
         </div>
       </section>
